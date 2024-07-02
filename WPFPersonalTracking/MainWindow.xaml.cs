@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFPersonalTracking.DB;
+using WPFPersonalTracking.ViewModels;
 
 namespace WPFPersonalTracking
 {
@@ -28,6 +29,12 @@ namespace WPFPersonalTracking
             {
                 
             }
+        }
+
+        private void btnDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            lblWindowsName.Content = "Department";
+            DataContext = new DepartmentViewmodel();
         }
     }
 }

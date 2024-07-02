@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFPersonalTracking"
+        xmlns:views="clr-namespace:WPFPersonalTracking.Views"
+        xmlns:viewmodel="clr-namespace:WPFPersonalTracking.ViewModels"
         mc:Ignorable="d"
         Title="WPF PErsonal Tracking" Name="PersonalMainWindow" Height="540" Width="1200" FontSize="24"  FontWeight="Bold" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Background="#FFA9D3F9" Icon="/icon.png">
     <Grid>
@@ -23,7 +25,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Image Source="/icon.png"/>
-        <ContentControl Content="" Grid.Column="1" Grid.RowSpan="8" Grid.Row="1" HorizontalAlignment="Stretch" Height="NaN" VerticalAlignment="Stretch" Width="NaN"/>
+        <ContentControl Content="{Binding}" Grid.Column="1" Grid.RowSpan="8" Grid.Row="1" HorizontalAlignment="Stretch" Height="NaN" VerticalAlignment="Stretch" Width="NaN"/>
         <Label x:Name="lblWindowsName" Grid.Column="1" Content="Windows Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
         <StackPanel Grid.Row="1" Margin="0, 2, 0, 0">
             <Button Grid.Row="1" Name="btnEmployee" Height="60" Width="250" HorizontalAlignment="Left">
@@ -32,7 +34,7 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="EmployeeImage" HorizontalAlignment="Left" Height="auto" Width="73" Margin="0,0,0,0" Source="/Employee.png"/>
+                    <Image x:Name="EmployeeImage" HorizontalAlignment="Left" Height="auto" Width="73" Margin="0,0,0,0" Source="Employee.png"/>
                     <TextBlock x:Name="EmployeeText" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Text="Employee"/>
                 </Grid>
             </Button>
@@ -70,21 +72,21 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="PermissionImage" HorizontalAlignment="Center" Height="auto" Width="73" Source="/Permission.png"/>
+                    <Image x:Name="PermissionImage" HorizontalAlignment="Center" Height="56" Width="73" Source="/Permission.png"/>
                     <TextBlock x:Name="PermissionText" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Permission"/>
                 </Grid>
             </Button>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Margin="0, 2, 0, 0">
-            <Button Grid.Row="5" Name="btnDepartment" Height="60" Width="250" HorizontalAlignment="Left">
+            <Button Grid.Row="5" Name="btnDepartment" Height="60" Width="250" HorizontalAlignment="Left" Click="btnDepartment_Click">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
                     <Image x:Name="DepartmentImage" HorizontalAlignment="Center" Height="auto" Width="73" Source="/Department.png"/>
-                    <TextBlock x:Name="DepartmentText" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Deparment"/>
+                    <TextBlock x:Name="DepartmentText" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Text="Deparment" Margin="0,12,0,0"/>
                 </Grid>
             </Button>
         </StackPanel>
@@ -128,4 +130,11 @@
             </Button>
         </StackPanel>
     </Grid>
+    <Window.Resources>
+        <DataTemplate x:Name="DepartmentTemplate" DataType="{x:Type viewmodel:DepartmentViewmodel}">
+            <views:DepartmentList>
+
+            </views:DepartmentList>
+        </DataTemplate>
+    </Window.Resources>
 </Window>
