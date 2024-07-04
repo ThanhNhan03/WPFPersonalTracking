@@ -30,5 +30,24 @@ namespace WPFPersonalTracking.Views
                 gridDepartment.ItemsSource = list;
             }
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            DepartmentPage page = new DepartmentPage();
+            page.ShowDialog();
+            using (PersonalTrackingContext db = new PersonalTrackingContext())
+            {
+                List<Department> list = db.Departments.OrderBy(x => x.DepartmentName).ToList();
+                gridDepartment.ItemsSource = list;
+            }
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Department department = (Department)gridDepartment.SelectedItem;
+            DepartmentPage page = new DepartmentPage();
+            page.department = department; 
+            page.ShowDialog();
+        }
     }
 }

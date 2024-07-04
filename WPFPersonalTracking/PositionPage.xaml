@@ -1,0 +1,29 @@
+﻿<Window x:Class="WPFPersonalTracking.PositionPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFPersonalTracking"
+        mc:Ignorable="d"
+        Title="PositionPage" Height="200" Width="350" Icon="/icon.png" WindowStartupLocation="CenterScreen"  Background="#FFA9D3F9" FontSize="15" FontWeight="Bold" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/> 
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Department Name" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <ComboBox Grid.Column="1" x:Name="cmbDepartment" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" SelectedIndex="1" />
+
+        <Label Content="Position Name" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtPositionName" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
+        <Button x:Name="btnSave" Content="Save" Grid.Column="0" Grid.Row="2" Width="100" Height="50" Click="btnSave_Click"/>
+        <Button x:Name="btnClose" Content="Close" Grid.Column="1" Grid.Row="2" Width="100" Height="50" Click="btnClose_Click"/>
+    </Grid>
+</Window>

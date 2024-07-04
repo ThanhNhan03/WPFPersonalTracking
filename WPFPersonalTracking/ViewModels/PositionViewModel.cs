@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPFPersonalTracking.ViewModels
 {
-   public class DepartmentViewmodel
+    public class PositionViewModel
     {
     }
 }
